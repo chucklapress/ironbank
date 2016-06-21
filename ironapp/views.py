@@ -17,7 +17,14 @@ class SignUpView(CreateView):
     success_url = "/"
 
 class AccountView(ListView):
+    template_name = "acctbalance_form.html"
     model = AcctBalance
+
+
+
+
+
+
 
 
 
