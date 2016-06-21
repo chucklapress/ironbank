@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView
+
+from ironapp.models import AcctBalance
 
 
 class IndexView(TemplateView):
@@ -14,6 +16,8 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = "/"
 
-# class AccountView():
+class AccountView(ListView):
+    model = AcctBalance
+
 
 
