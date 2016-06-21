@@ -14,4 +14,6 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = "/"
 
+# class AccountView():
+
 
