@@ -17,14 +17,15 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.views import logout
 
-from ironapp.views import IndexView, SignUpView, AccountView
+from ironapp.views import IndexView, SignUpView, AccountView, ItemView
 
 urlpatterns = (
     url(r'^admin/', admin.site.urls),
     url('^', include('django.contrib.auth.urls')),
     url(r'^$', IndexView.as_view(), name="index_view"),
     url(r'^signup/$', SignUpView.as_view(), name="sign_up_view"),
-    url(r'^balance/$', AccountView.as_view(), name="acct_bal_view"))
+    url(r'^balance/$', AccountView.as_view(), name="acct_bal_view"),
+    url(r'^item/(?P<pk>\d+)/$', ItemView.as_view(), name="transaction_view"))
 
 
 
