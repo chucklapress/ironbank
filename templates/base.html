@@ -6,10 +6,13 @@
     <title>Iron Bank</title>
         <link rel="stylesheet" href='{% static "ironapp/css/bootstrap.css" %}' media="screen" title="bootstrap" charset="utf-8">
   </head>
-</head>
 <body>
-
-    <div class="container">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title">Welcome to Iron Bank</h1>
+  </div>
+  <div class="panel-body">
+      <div class="container">
 
 
             <a href="{% url 'index_view'%}">Welcome page</a>
@@ -17,6 +20,18 @@
             <a href= "{% url 'sign_up_view' %}">sign up</a>
             <a href="{% url 'login' %}">Login</a>
             <a href="{% url 'logout' %}">Logout</a>
+
+
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
 
 
 
