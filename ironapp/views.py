@@ -25,3 +25,7 @@ class AccountView(ListView):
     model = AcctBalance
 
 
+class OpenAcctView(CreateView):
+    model = AcctBalance
+    template_name = "open_account.html"
+
