@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import TemplateView, CreateView, ListView
+from django.views.generic import TemplateView, CreateView, ListView, DetailView
 
 from ironapp.models import AcctBalance
 
@@ -28,4 +28,12 @@ class AccountView(ListView):
 class OpenAcctView(CreateView):
     model = AcctBalance
     template_name = "open_account.html"
+
+
+class AccountDetailView(DetailView):
+    model = AcctBalance
+
+    def get_queryset(self):
+        return AcctBalance.objects.filter(name=self.request.user)
+
 

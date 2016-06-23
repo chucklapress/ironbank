@@ -4,9 +4,10 @@
 
 
 {% block content %}
-<h1></h1>
 
-
+{% if acctbalance.customer == request.user  %}
+    <a href="{% url 'account_detail_view' acctbalance.pk %}">Detail View</a>
+{% endif %}
 
 
 
