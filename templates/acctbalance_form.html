@@ -4,8 +4,15 @@
 
 <h3>Account Balance</h3>
     {% for item in object_list %}
-        {{ item }}
+        {{ item.customer }}
+        <p>{{ item.entry }}</p>
+        <p>{{ item.date }}</p>
+        <P>{{ item.is_deposit }}</P>
+
     {% endfor %}
+    <p>{{ item }}</p>
 
 
 {% endblock %}
+
+

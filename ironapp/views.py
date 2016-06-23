@@ -23,6 +23,9 @@ class SignUpView(CreateView):
 class AccountView(ListView):
     template_name = "acctbalance_form.html"
     model = AcctBalance
+    def get_queryset(self):
+        return AcctBalance.objects.filter(customer=self.request.user)
+
 
 
 class OpenAcctView(CreateView):
@@ -33,7 +36,10 @@ class OpenAcctView(CreateView):
 class AccountDetailView(DetailView):
     model = AcctBalance
 
-    def get_queryset(self):
-        return AcctBalance.objects.filter(name=self.request.user)
+
+
+
+
+
 
 
