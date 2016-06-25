@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 
-from ironapp.views import IndexView, SignUpView, AccountView, OpenAcctView, AccountDetailView
+from ironapp.views import IndexView, SignUpView, AccountView, OpenAcctView, AccountDetailView, BalanceView
 
 urlpatterns = (
     url(r'^admin/', admin.site.urls),
@@ -27,7 +27,7 @@ urlpatterns = (
     url(r'^balance/', AccountView.as_view(), name="acct_bal_view"),
     url(r'^openacct/',OpenAcctView.as_view(), name="open_acct"),
     url(r'^account/(?P<pk>\d+)/$', AccountDetailView.as_view(), name="account_detail_view"),
-
+    url(r'^balview/(?P<pk>\d+)/$', BalanceView.as_view(), name="balance_view")
 
 )
 

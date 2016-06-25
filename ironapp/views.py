@@ -28,6 +28,19 @@ class AccountView(ListView):
 
 
 
+class BalanceView(DetailView):
+    template_name = "balance_view.html"
+    model = AcctBalance
+    def get_queryset(self):
+        return AcctBalance.objects.filter(customer=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["entry"] = "entry"
+        return context
+
+
+
 class OpenAcctView(CreateView):
     model = AcctBalance
     template_name = "open_account.html"
