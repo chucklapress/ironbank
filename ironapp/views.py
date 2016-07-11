@@ -42,8 +42,9 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = "/"
 
-
-class AccountView(ListView):
+from django.contrib.auth.mixins import LoginRequiredMixin
+class AccountView(LoginRequiredMixin, ListView):
+    login_url = "/login/"
     template_name = "acctbalance_form.html"
     model = AcctBalance
     def get_queryset(self):
@@ -59,7 +60,7 @@ class BalanceView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["entry"] = "entry"
+        context["account"] = "account"
         return context
 
 

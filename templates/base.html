@@ -17,7 +17,7 @@
             <a href="{% url 'index_view'%}">Welcome page</a>
             <a href= "{% url 'acct_bal_view' %}">view account</a>
             <a href= "{% url 'sign_up_view' %}">sign up</a>
-            <a href="{%url 'login_view'%}">Log in</a>
+            <a href="{%url 'login'%}">Login</a>
             <a href="{%url 'logout_view'%}?next=/">Logout</a>
 
 
@@ -38,5 +38,6 @@
         {%block content%}
             no content provided
         {% endblock %}
+
 </body>
 </html>
