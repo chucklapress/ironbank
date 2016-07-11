@@ -8,6 +8,7 @@
         <p>{{ item.entry }}</p>
         <p>{{ item.date }}</p>
         <P>{{ item.is_deposit }}</P>
+        <a href= "{% url 'account_detail_view' item.pk %}">Transaction Detail</a>
 
     {% endfor %}
 
@@ -15,5 +16,3 @@
 
 
 {% endblock %}
-
-

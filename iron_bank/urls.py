@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.contrib.auth.views import login, logout
 
 
-from ironapp.views import IndexView, SignUpView, AccountView, OpenAcctView, AccountDetailView, BalanceView
+from ironapp.views import IndexView, SignUpView, AccountView, OpenAcctView, AccountDetailView
 
 urlpatterns = (
     url(r'^admin/', admin.site.urls),
@@ -27,9 +27,8 @@ urlpatterns = (
     url(r'^logout/$', logout, name="logout_view"),
     url(r'^$', IndexView.as_view(), name="index_view"),
     url(r'^signup/', SignUpView.as_view(), name="sign_up_view"),
-    url(r'^balance/', AccountView.as_view(), name="acct_bal_view"),
-    url(r'^openacct/',OpenAcctView.as_view(), name="open_acct"),
-    url(r'^account/(?P<pk>\d+)/$', AccountDetailView.as_view(), name="account_detail_view"),
-    url(r'^balview/(?P<pk>\d+)/$', BalanceView.as_view() , name="balance_view")
+    url(r'^balance/$', AccountView.as_view(), name="acct_bal_view"),
+    url(r'^openacct/',OpenAcctView.as_view(), name="open_acct_view"),
+    url(r'^balance/(?P<pk>\d+)/$', AccountDetailView.as_view(), name="account_detail_view")
 
 )

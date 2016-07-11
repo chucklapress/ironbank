@@ -50,27 +50,17 @@ class AccountView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return AcctBalance.objects.filter(customer=self.request.user)
 
-
-
-class BalanceView(DetailView):
-    template_name = "balance_view.html"
-    model = AcctBalance
-    def get_queryset(self):
-        return AcctBalance.objects.filter(customer=self.request.user)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["account"] = "account"
-        return context
-
-
-
 class OpenAcctView(CreateView):
     model = AcctBalance
     template_name = "open_account.html"
-    fields = ["entry", "is_deposit","date","name","customer"]
+    fields = ["entry", "is_deposit","date","name"]
     success_url = '/'
+    def form_valid(self, form):
+        accttrans =form.save(commit=False)
+        accttrans.customer = self.request.user
+        return super().form_valid(form)
 
 
 class AccountDetailView(DetailView):
     model = AcctBalance
+    template = "acctbalance_detail.html"
