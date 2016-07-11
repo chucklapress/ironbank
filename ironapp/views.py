@@ -5,9 +5,32 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import TemplateView, CreateView, ListView, DetailView
+from django.views.generic import TemplateView, CreateView, ListView, DetailView, View
 
 from ironapp.models import AcctBalance
+
+class LoginView(View):
+    def post(self, request):
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+
+                return HttpResponseRedirect('/form')
+            else:
+                return HttpResponse("Inactive user.")
+        else:
+            return HttpResponseRedirect(settings.LOGIN_URL)
+
+        return render(request, "index.html")
+
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return HttpResponseRedirect(settings.LOGIN_URL)
 
 
 class IndexView(TemplateView):
@@ -44,15 +67,9 @@ class BalanceView(DetailView):
 class OpenAcctView(CreateView):
     model = AcctBalance
     template_name = "open_account.html"
+    fields = ["entry", "is_deposit","date","name","customer"]
+    success_url = '/'
 
 
 class AccountDetailView(DetailView):
     model = AcctBalance
-
-
-
-
-
-
-
-

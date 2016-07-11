@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Account Details</title>
+  </head>
+  <body><h2>Your Account</h2>
+<p>{{object.id}}</p>
+<p>{{ object.entry }}</p>
+<p>{{ object.date}}</p>
+<p>{{ object.is_deposit }}</p>
+<p>{{ object.name}}</p>
+{% for customer in object.customer.all %}
+      <li>{{ customer }}</li>
+{% endfor %}
+
+  </body>
+</html>
