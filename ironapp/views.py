@@ -41,6 +41,16 @@ class SignUpView(CreateView):
     model = User
     form_class = UserCreationForm
     success_url = "/"
+def is_balance():
+    transactions = AcctBalance.objects.all()
+    balance = 0
+    for items in transactions:
+        if is_deposit == True:
+            balance += entry
+        else:
+            is_deposit == False
+            balance -= entry
+        return balance()
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 class AccountView(LoginRequiredMixin, ListView):
