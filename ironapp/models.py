@@ -13,4 +13,4 @@ class AcctBalance(models.Model):
     customer = models.ForeignKey('auth.User')
     memo_or_note = models.CharField(max_length=35)
     def __str__(self):
-        return self.name
+        return self.memo_or_note
