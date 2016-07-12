@@ -14,12 +14,13 @@
       <div class="container">
 
 
-            <a href="{% url 'index_view'%}">Welcome page</a>
-            <a href= "{% url 'acct_bal_view' %}">view account</a>
-            <a href= "{% url 'sign_up_view' %}">sign up</a>
-            <a href="{%url 'login'%}">Login</a>
+            <a href="{% url 'index_view'%}">Home</a>
+            <a href= "{% url 'sign_up_view' %}">Sign up a new account</a>
+            <a href="{%url 'login'%}">Login to your account</a>
+            <a href= "{% url 'acct_bal_view' %}">View your account</a>
+            <a href= "{% url 'open_acct_view' %}">Make a Transaction</a>
             <a href="{%url 'logout_view'%}?next=/">Logout</a>
-            <a href= "{% url 'open_acct_view' %}">open acct or transaction</a>
+
 
 
 
