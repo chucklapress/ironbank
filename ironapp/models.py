@@ -7,7 +7,7 @@ from django.db import models
 
 class AcctBalance(models.Model):
     account_number = models.IntegerField()
-    entry = models.IntegerField()
+    entry = models.DecimalField(max_digits=19, decimal_places=2)
     is_deposit = models.BooleanField(default=1)
     date = models.DateTimeField(default=datetime.now, blank=True)
     customer = models.ForeignKey('auth.User')
