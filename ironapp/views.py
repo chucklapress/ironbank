@@ -79,7 +79,7 @@ class AccountView(LoginRequiredMixin, ListView):
 class OpenAcctView(CreateView):
     model = AcctBalance
     template_name = "open_account.html"
-    fields = ["entry", "is_deposit","date","memo_or_note","account_number"]
+    fields = ["entry", "is_deposit","date","memo_or_note","account_number","is_transfer"]
     success_url = '/'
     def form_valid(self, form):
 
@@ -88,10 +88,16 @@ class OpenAcctView(CreateView):
         credit = accttrans.is_deposit == True
         if accttrans.entry > is_balance(self.request.user) and not accttrans.is_deposit:
             form.add_error("entry", "overdraft not allowed")
+            return super().form_invalid(form)
+        return super().form_valid(form)
+        debit = accttrans.is_transfer == True
+        if accttrans.transfer_amount < is_balance(self.request.user):
+            form.add_error("transfer_amount", "overdraft not allowed")
 
             return super().form_invalid(form)
 
         return super().form_valid(form)
+
 
 
 

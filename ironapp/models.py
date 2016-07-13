@@ -14,7 +14,7 @@ class AcctBalance(models.Model):
     memo_or_note = models.CharField(max_length=35)
     is_transfer = models.BooleanField(default=False)
     def __str__(self):
-        return self.memo_or_note
+        return self.customer.username
 
 class Transfer(models.Model):
     account_number = models.IntegerField()
