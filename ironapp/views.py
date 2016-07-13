@@ -49,16 +49,12 @@ def is_balance(user):
     for items in transactions:
         if items.is_deposit == True:
             balance += items.entry
-        elif items.is_deposit == False:
+        elif items.is_transfer == True:
             balance -= items.entry
             if balance >0:
                 print("This transaction is not supported")
 
     return balance
-
-
-
-
 
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -90,14 +86,7 @@ class OpenAcctView(CreateView):
             form.add_error("entry", "overdraft not allowed")
             return super().form_invalid(form)
         return super().form_valid(form)
-        debit = accttrans.is_transfer == True
-        if accttrans.acctrans.entry > is_balance(self.request.user):
-            form.add_error("transfer_amount", "overdraft not allowed")
 
-            return super().form_invalid(form)
-
-        return super().form_valid(form)
-        
 
 
 
