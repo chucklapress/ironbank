@@ -18,7 +18,7 @@ class AcctBalance(models.Model):
 
 class Transfer(models.Model):
     account_number = models.IntegerField()
-    transfer_amount = models.IntegerField()
+    transfer_amount = models.DecimalField(max_digits=19, decimal_places=2)
     from_account = models.OneToOneField('auth.User')
     date =models.DateTimeField(default=datetime.now, blank=True)
     customer = models.ForeignKey(AcctBalance)

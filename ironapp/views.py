@@ -7,7 +7,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, View
 
-from ironapp.models import AcctBalance
+from ironapp.models import AcctBalance, Transfer
 
 class LoginView(View):
     def post(self, request):
@@ -98,3 +98,9 @@ class OpenAcctView(CreateView):
 class AccountDetailView(DetailView):
     model = AcctBalance
     template = "acctbalance_detail.html"
+
+class TransferView(CreateView):
+    model = Transfer
+    template_name = "create_transfer.html"
+    fields = ["account_number", "transfer_amount","date","memo_or_note","from_account", "customer"]
+    success_url = '/'
