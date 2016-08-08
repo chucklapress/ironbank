@@ -49,6 +49,8 @@ def is_balance(user):
     for items in transactions:
         if items.is_deposit == True:
             balance += items.entry
+        elif items.is_deposit == False:
+            balance -= items.entry
         elif items.is_transfer == True:
             balance -= items.entry
             if balance >0:
