@@ -5,10 +5,10 @@
     <title>Account Details</title>
   </head>
   <body><h2>Your Account</h2>
-<p>{{object.id}}</p>
-<p>{{ object.entry }}</p>
-<p>{{ object.date}}</p>
-<p>{{ object.is_deposit }}</p>
+<p>Transaction number: {{object.id}}</p>
+<p>Amount of transaction: {{ object.entry }}</p>
+<p>Date of transaction: {{ object.date}}</p>
+<p>Was a deposit T/F: {{ object.is_deposit }}</p>
 <p>{{ object.name}}</p>
 {% for customer in object.customer.all %}
       <li>{{ customer }}</li>

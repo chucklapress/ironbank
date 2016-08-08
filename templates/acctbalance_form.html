@@ -5,16 +5,17 @@
 
 <h3>Account Balance</h3>
     {% for item in object_list %}
-        {{ item.customer }}
-        <p>{{ item.entry }}</p>
-        <p>{{ item.date }}</p>
-        <P>{{ item.is_deposit }}</P>
+        Customer: {{ item.customer }}
+        <br>
+        <p>Amount of transaction:$ {{ item.entry }}</p>
+        <p>Date of transaction: {{ item.date }}</p>
+        <P>Item was a deposit T/F: {{ item.is_deposit }}</P>
         <a href= "{% url 'account_detail_view' item.pk %}">Transaction Detail</a>
-
+        <br>
     {% endfor %}
 
 <h4>Current Balance: ${{balance}}</h4>
- 
+
 
 
 
