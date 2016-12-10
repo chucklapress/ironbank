@@ -13,9 +13,8 @@
         <p>Date of transaction: {{ item.date }}</p>
         <P>Item was a deposit T/F: {{ item.is_deposit }}</P>
         <a href= "{% url 'account_detail_view' item.pk %}">Transaction Detail</a>
-        <h4>Current Balance: ${{balance}}</h4>
     {% endfor %}
-
+<h4>Current Balance: ${{balance}}</h4>
 </div>
 
 {% endblock %}
