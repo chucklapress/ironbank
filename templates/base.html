@@ -9,15 +9,15 @@
         <div class="container">
           <ul class="nav nav-pills">
             {% if user.is_authenticated %}
-            <li role="presentation"><a href= "{% url 'acct_bal_view' %}">View your account</a></li>
-            <li role="presentation"><a href= "{% url 'open_acct_view' %}">Make a Transaction</a></li>
-            <li role="presentation"><a href="{%url 'logout_view'%}?next=/">Logout</a></li>
+            <li role="presentation" class="active"><a href= "{% url 'acct_bal_view' %}">View your account</a></li>
+            <li role="presentation" class="active"><a href= "{% url 'open_acct_view' %}">Make a Transaction</a></li>
+            <li role="presentation" class="active"><a href="{%url 'logout_view'%}?next=/">Logout</a></li>
             {% else %}
             <li role="presentation" class="active"><a href="{% url 'index_view'%}">Home</a></li>
-            <li role="presentation"><a href= "{% url 'sign_up_view' %}">Sign up a new account</a></li>
-            <li role="presentation"><a href="{%url 'login'%}">Login to your account</a></li>
+            <li role="presentation" class="active"><a href= "{% url 'sign_up_view' %}">Sign up a new account</a></li>
+            <li role="presentation" class="active"><a href="{%url 'login'%}">Login to your account</a></li>
             {% endif %}
-          </div>
+          </div></nav>
 </head>
 
 <body>
